@@ -20,11 +20,11 @@ public class Main {
 		System.out.println("ip serveur : ");
 		String host = sc.nextLine();
 		if (host.equalsIgnoreCase("default")) {
-			host = "192.168.1.9";
+			host = "91.160.42.186";
 		} else if (host.equalsIgnoreCase("petit")) {
 			host = "192.168.1.27";
 		}
-		int port = 5546;
+		int port = 14793;
 
 		Thread t = new Thread(new ServerConnexion(host, port, pseudo));
 		t.start();

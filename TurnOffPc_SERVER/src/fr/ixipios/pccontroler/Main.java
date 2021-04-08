@@ -14,7 +14,7 @@ public class Main {
 		
 		String name = sc.nextLine();
 		
-		int port = 5546;
+		int port = 14793;
 
 		ts = new SocketServer(host, port);
 		ts.open();
