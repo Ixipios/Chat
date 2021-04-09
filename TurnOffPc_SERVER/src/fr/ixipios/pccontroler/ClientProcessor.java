@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.Arrays;
+import java.util.Map;
 
 public class ClientProcessor implements Runnable {
 
@@ -26,7 +27,7 @@ public class ClientProcessor implements Runnable {
 			writer = new PrintWriter(sock.getOutputStream());
 			reader = new BufferedInputStream(sock.getInputStream());
 			clientName = read();
-			Main.ts.pseudos.put(clientName, sock);
+			Main.ts.pseudos.put(sock, clientName);
 			System.out.println("Connexion au serveur de : " + clientName);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -47,10 +48,24 @@ public class ClientProcessor implements Runnable {
 					case "mp":
 						if(params.length > 2) {
 							String[] msg = Arrays.copyOfRange(params, 2, params.length);
-							Main.ts.getChatManager().sendTo(String.join(" ", msg), clientName, Main.ts.pseudos.get(params[1]));
+							Main.ts.getChatManager().sendTo(String.join(" ", msg), clientName, (Socket)getKeyFromValue(Main.ts.pseudos, params[1]));
 						}
 						else {
 							error("Pas assez d'arguments. Il en faut 2.");
+						}
+						break;
+					case "list":
+						String clients = String.join(", ", Main.ts.pseudos.values());
+						write("Liste des " + Main.ts.pseudos.size() + " personnes en ligne :");
+						write(clients);
+						break;
+					case "name":
+						write("Votre pseudo est : " + clientName);
+						write("Voulez-vous le changez ? O/N");
+						if(read().equalsIgnoreCase("O")) {
+							write("Entre votre nouveau pseudo : ");
+							clientName = read();
+							
 						}
 						break;
 //				case "shutdown13795":
@@ -86,6 +101,16 @@ public class ClientProcessor implements Runnable {
 			}
 		}
 	}
+	
+	
+	 public static Object getKeyFromValue(Map hm, Object value) {
+         for (Object o : hm.keySet()) {
+           if (hm.get(o).equals(value)) {
+             return o;
+           }
+         }
+         return null;
+       }
 
 	public String read() throws IOException {
 		String response = "";

@@ -16,7 +16,7 @@ public class SocketServer {
 	private ServerSocket server = null;
 	private boolean isRunning = true;
 	public ArrayList<Socket> clients = new ArrayList<Socket>();
-	public HashMap<String, Socket> pseudos = new HashMap<String, Socket>();
+	public HashMap<Socket, String> pseudos = new HashMap<Socket, String>();
 	private ChatManager chatManager = null;
 	public boolean clientConnected = false;
 	

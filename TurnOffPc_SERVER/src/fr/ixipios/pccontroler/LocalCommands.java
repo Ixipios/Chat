@@ -20,7 +20,7 @@ public class LocalCommands implements Runnable {
 				String[] params = command.substring(1).split(" ");
 				switch (params[0]) {
 				case "list":
-					String clients = String.join(", ", Main.ts.pseudos.keySet());
+					String clients = String.join(", ", Main.ts.pseudos.values());
 					print("Liste des " + Main.ts.pseudos.size() + " personnes en ligne :");
 					print(clients);
 					break;
