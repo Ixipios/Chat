@@ -55,8 +55,12 @@ public class ServerConnexion implements Runnable {
 				// switch pour exécuter la commande
 				switch (params[0]) {
 				case "debug":
-					debug = Boolean.parseBoolean(params[1]);
-					print("messages de debug masqués");
+					debug = !debug;
+					if(debug) {
+						print("messages de debug");
+					}else {
+						print("messages de debug activés");
+					}
 					break;
 				default:
 					print("Commande interne inconnue");
