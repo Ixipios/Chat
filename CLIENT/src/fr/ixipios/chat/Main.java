@@ -1,4 +1,4 @@
-package fr.ixipios.pccontroler;
+package fr.ixipios.chat;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package fr.ixipios.pccontroler;
+package fr.ixipios.chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
