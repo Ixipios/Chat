@@ -1,2 +1,2 @@
-# DogChat
+# SuperChat
 An INCREDIBLE java chat
