@@ -9,7 +9,7 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Pseudo : ");
-		String pseudo = "fqsfd";
+		String pseudo = "default_username";
 		pseudo = sc.nextLine();
 		while(pseudo.contains(" ")) {
 			if (pseudo.contains(" ")) {
@@ -20,9 +20,9 @@ public class Main {
 		System.out.println("ip serveur : ");
 		String host = sc.nextLine();
 		if (host.equalsIgnoreCase("default")) {
-			host = "91.160.42.186";
+			host = "";
 		} else if (host.equalsIgnoreCase("petit")) {
-			host = "192.168.1.27";
+			host = "";
 		}
 		int port = 14793;
 

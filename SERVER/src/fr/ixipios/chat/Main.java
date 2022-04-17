@@ -8,9 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("SERVER : IP : ");
 		Scanner sc = new Scanner(System.in);
-		String host = "192.168.1.9";
+		String host = "";
 		if(sc.nextLine().equalsIgnoreCase("petit")) {
-			host = "192.168.1.27";
+			host = "";
 		}
 		
 		System.out.println("SERVER : pseudo : ");
